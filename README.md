@@ -23,17 +23,7 @@ This landing page highlights features, student success stories, and a call-to-ac
 - **GSAP** (GreenSock Animation Platform)  
 - **ScrollTrigger** (GSAP plugin)  
 - **Three.js** (3D rendering & particles)  
-- **Google Fonts – Inter**  
-
----
-
-## 📂 Project Structure  
-
-```
-├── index.html        # Main landing page
-├── /assets           # (Optional) Place for images/icons
-└── README.md         # Documentation
-```
+- **Google Fonts – Inter**
 
 ---
 

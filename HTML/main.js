@@ -1,4 +1,3 @@
-
 // GSAP Animations
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,13 +17,24 @@ gsap.from("p", {
     ease: "power4.out"
 });
 
-gsap.from("button", {
-    y: 30,
-    opacity: 0,
-    duration: 1,
-    delay: 0.4,
-    stagger: 0.1,
-    ease: "power4.out"
+// Animate all buttons with proper defaults
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    // Set initial state
+    gsap.set(button, { opacity: 1 });
+    // Add animation
+    gsap.from(button, {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        delay: 0.4,
+        ease: "power4.out",
+        scrollTrigger: {
+            trigger: button,
+            start: "top 90%",
+            toggleActions: "play none none none"
+        }
+    });
 });
 
 // Floating cards animation
@@ -170,7 +180,9 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('section').forEach(section => {
+// Only observe sections that don't have the CTA class
+document.querySelectorAll('section:not(.cta)').forEach(section => {
+    // Set initial state for non-CTA sections
     section.style.opacity = '0';
     section.style.transform = 'translateY(30px)';
     section.style.transition = 'all 0.6s ease-out';

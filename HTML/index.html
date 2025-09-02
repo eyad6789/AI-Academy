@@ -10,6 +10,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="./style.css">
+    <style>
+        .glow-button-alt {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .glow-button-alt:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+        
+        .glow-button-alt:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            z-index: -1;
+            background: linear-gradient(45deg, #ff00ea, #9f00ff, #00ffff, #ff00ea);
+            background-size: 400%;
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        
+        .glow-button-alt:hover:before {
+            opacity: 1;
+        }
+        
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+    </style>
 </head>
 <body>
     <div id="canvas-container"></div>
@@ -23,15 +61,6 @@
                 </div>
                 <span class="text-xl font-bold">Academy</span>
             </div>
-            <!-- <div class="hidden md:flex space-x-8">
-                <a href="#features" class="hover:text-purple-400 transition">Features</a>
-                <a href="#curriculum" class="hover:text-purple-400 transition">Curriculum</a>
-                <a href="#projects" class="hover:text-purple-400 transition">Projects</a>
-                <a href="#pricing" class="hover:text-purple-400 transition">Pricing</a>
-            </div>
-            <button class="glow-button px-6 py-2 rounded-full text-white font-semibold">
-                Start Learning
-            </button> -->
         </div>
     </nav>
     
@@ -49,14 +78,6 @@
                 Master the art of creating professional applications using AI tools. 
                 From idea to deployment - no programming experience needed.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <button class="glow-button px-8 py-4 rounded-lg text-lg font-semibold">
-                    Get Started Free
-                </button>
-                <button class="px-8 py-4 rounded-lg text-lg font-semibold border border-white/20 hover:bg-white/10 transition">
-                    Watch Demo
-                </button>
-            </div>
         </div>
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
             <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,7 +126,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- How It Works Section -->
     <section class="py-20 tech-grid relative">
         <div class="container mx-auto px-6">
@@ -156,6 +177,43 @@
             </div>
         </div>
     </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="py-20 bg-black/40 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    About <span class="gradient-text">Us</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">We are a team of passionate professionals combining expertise in AI engineering and medicine to empower people to use AI in their daily lives.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Eyad Qasim -->
+                <div class="floating-card p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6 flex items-center justify-center overflow-hidden">
+                        <!-- Eyad's Image Placeholder -->
+                        <img src="./assets/my-image.jpg" alt="Eyad Qasim" class="object-cover w-full h-full" />
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Eyad Qasim</h3>
+                    <p class="text-purple-400 font-semibold mb-2">AI Engineer</p>
+                    <p class="text-gray-400">Eyad is an experienced AI engineer with a passion for building innovative solutions and making AI accessible to everyone. He specializes in developing practical AI tools and teaching others how to leverage AI in real-world projects.</p>
+                </div>
+                <!-- Mohamed Farhod -->
+                <div class="floating-card p-8 rounded-2xl flex flex-col items-center text-center">
+                    <div class="w-32 h-32 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full mb-6 flex items-center justify-center overflow-hidden">
+                        <!-- Mohamed's Image Placeholder -->
+                        <img src="assets/mohamed-placeholder.jpg" alt="Mohamed Farhod" class="object-cover w-full h-full" />
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Dr. Mohamed Farhod</h3>
+                    <p class="text-pink-400 font-semibold mb-2">Medical Doctor and AI</p>
+                    <p class="text-gray-400">Mohamed is a medical doctor and AI specialist, dedicated to bridging the gap between healthcare and technology. He works on AI-driven medical projects and helps people understand how AI can improve their lives and health.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-lg text-gray-400">Together, we build impactful projects and teach people how to use AI to transform their future.</p>
+            </div>
+        </div>
+    </section>
     
     <!-- Projects Showcase -->
     <section id="projects" class="py-20">
@@ -174,7 +232,67 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">E-Commerce Platform</h3>
+                        <h3 class="text-xl font-bold mb-2">Lung Cancer Prediction</h3>
+                        <p class="text-gray-400 mb-4">Full-stack marketplace built in 5 days using AI tools</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <img src="data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='15' fill='%23667eea'/%3E%3C/svg%3E" alt="User" class="w-8 h-8 rounded-full mr-2">
+                            <span>Sarah Chen • Marketing Manager</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-blue-600 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <button class="px-4 py-2 bg-white text-black rounded-lg font-semibold">View Project</button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Score2 webpage</h3>
+                        <p class="text-gray-400 mb-4">Full-stack marketplace built in 5 days using AI tools</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <img src="data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='15' fill='%23667eea'/%3E%3C/svg%3E" alt="User" class="w-8 h-8 rounded-full mr-2">
+                            <span>Sarah Chen • Marketing Manager</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-blue-600 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <button class="px-4 py-2 bg-white text-black rounded-lg font-semibold">View Project</button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Smart Mirror</h3>
+                        <p class="text-gray-400 mb-4">Full-stack marketplace built in 5 days using AI tools</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <img src="data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='15' fill='%23667eea'/%3E%3C/svg%3E" alt="User" class="w-8 h-8 rounded-full mr-2">
+                            <span>Sarah Chen • Marketing Manager</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-blue-600 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <button class="px-4 py-2 bg-white text-black rounded-lg font-semibold">View Project</button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Copper Diffusion Correection</h3>
+                        <p class="text-gray-400 mb-4">Full-stack marketplace built in 5 days using AI tools</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <img src="data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='15' fill='%23667eea'/%3E%3C/svg%3E" alt="User" class="w-8 h-8 rounded-full mr-2">
+                            <span>Sarah Chen • Marketing Manager</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-blue-600 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <button class="px-4 py-2 bg-white text-black rounded-lg font-semibold">View Project</button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Brain Tumore detection</h3>
                         <p class="text-gray-400 mb-4">Full-stack marketplace built in 5 days using AI tools</p>
                         <div class="flex items-center text-sm text-gray-500">
                             <img src="data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='15' fill='%23667eea'/%3E%3C/svg%3E" alt="User" class="w-8 h-8 rounded-full mr-2">
@@ -189,7 +307,7 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">SaaS Dashboard</h3>
+                        <h3 class="text-xl font-bold mb-2">AI Resume Analyzer</h3>
                         <p class="text-gray-400 mb-4">Analytics platform with real-time data visualization</p>
                         <div class="flex items-center text-sm text-gray-500">
                             <img src="data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='15' fill='%23f093fb'/%3E%3C/svg%3E" alt="User" class="w-8 h-8 rounded-full mr-2">
@@ -202,7 +320,7 @@
     </section>
     
     <!-- CTA Section -->
-    <section class="py-20">
+    <section class="py-20 cta">
         <div class="container mx-auto px-6">
             <div class="floating-card p-12 rounded-3xl text-center bg-gradient-to-r from-purple-900/20 to-pink-900/20">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
@@ -212,17 +330,55 @@
                     Join thousands of students who are already building amazing products with AI. 
                     No coding experience required.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="glow-button px-8 py-4 rounded-lg text-lg font-semibold">
-                        Start Free Trial
-                    </button>
-                    <button class="px-8 py-4 rounded-lg text-lg font-semibold border border-white/20 hover:bg-white/10 transition">
-                        Schedule Demo
+                <div class="flex justify-center">
+                    <button onclick="openSignUpForm()" class="glow-button-alt px-12 py-5 border  rounded-xl text-xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 hover:border-transparent transition transform hover:-translate-y-1 duration-200 shadow-lg shadow-purple-500/25">
+                        Sign with us
                     </button>
                 </div>
                 <p class="text-sm text-gray-500 mt-6">
                     ✓ 14-day free trial · ✓ No credit card required · ✓ Cancel anytime
                 </p>
+            </div>
+        </div>
+
+        <!-- Sign Up Modal -->
+        <div id="signUpModal" class="fixed inset-0 bg-black/90 flex items-center justify-center hidden z-50">
+            <div class="bg-gray-900 p-8 rounded-2xl w-full max-w-md relative floating-card">
+                <button onclick="closeSignUpForm()" class="absolute top-4 right-4 text-gray-400 hover:text-white" aria-label="Close sign up form">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <h3 class="text-2xl font-bold mb-6">Sign Up with AI Academy</h3>
+                <form id="signUpForm" onsubmit="handleSubmit(event)" class="space-y-4">
+                    <div>
+                        <label for="firstName" class="block text-sm font-medium text-gray-400 mb-1">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required 
+                            class="w-full px-4 py-2 rounded-lg bg-black/50 border border-gray-700 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 text-white"
+                            placeholder="Enter your first name">
+                    </div>
+                    <div>
+                        <label for="lastName" class="block text-sm font-medium text-gray-400 mb-1">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required 
+                            class="w-full px-4 py-2 rounded-lg bg-black/50 border border-gray-700 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 text-white"
+                            placeholder="Enter your last name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                        <input type="email" id="email" name="email" required 
+                            class="w-full px-4 py-2 rounded-lg bg-black/50 border border-gray-700 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 text-white"
+                            placeholder="Enter your email address">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-400 mb-1">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required 
+                            class="w-full px-4 py-2 rounded-lg bg-black/50 border border-gray-700 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 text-white"
+                            placeholder="Enter your phone number">
+                    </div>
+                    <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:opacity-90 transition">
+                        Submit
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -242,5 +398,26 @@
         </div>
     </footer> 
     <script src="./main.js"></script>
+    <script>
+        function openSignUpForm() {
+            document.getElementById('signUpModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSignUpForm() {
+            document.getElementById('signUpModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            // Here you would typically send the data to your backend
+            console.log('Form submitted:', data);
+            alert('Thank you for signing up! We will contact you soon.');
+            closeSignUpForm();
+        }
+    </script>
 </body>
 </html>

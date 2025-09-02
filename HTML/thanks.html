@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You | AI Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <style>
+      .gradient-circle {
+        background: linear-gradient(45deg, #a855f7, #ec4899);
+      }
+
+      .floating-effect {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .background-animate {
+        background-size: 200%;
+        animation: backgroundMove 3s ease infinite;
+      }
+
+      @keyframes backgroundMove {
+        0%,
+        100% {
+          background-position: 0% center;
+        }
+        50% {
+          background-position: 100% center;
+        }
+      }
+
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center bg-black text-white overflow-hidden"
+  >
+    <!-- Particles Background -->
+    <div class="fixed inset-0 opacity-50">
+      <div id="particles-js"></div>
+    </div>
+
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <div class="max-w-2xl mx-auto">
+        <!-- Success Checkmark -->
+        <div
+          class="success-checkmark w-24 h-24 gradient-circle rounded-full mx-auto mb-8 flex items-center justify-center floating-effect"
+        >
+          <svg
+            class="w-12 h-12 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+        </div>
+
+        <!-- Thank You Message -->
+        <div
+          class="space-y-6 floating-card p-8 rounded-2xl bg-black/40 backdrop-blur-lg"
+        >
+          <h1
+            class="text-5xl md:text-6xl font-bold mb-4 background-animate bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 text-transparent bg-clip-text"
+          >
+            Thank You!
+          </h1>
+          <p class="text-xl text-gray-300 mb-8">
+            We've received your submission and we're excited to have you join
+            us! We'll get back to you shortly with more information about your
+            journey into AI.
+          </p>
+
+          <!-- Return Button -->
+          <a href="index.html" class="inline-block group relative">
+            <div
+              class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"
+            ></div>
+            <div
+              class="relative px-8 py-4 bg-black rounded-lg leading-none flex items-center"
+            >
+              <span class="text-lg font-semibold text-white">
+                Return to Home
+              </span>
+              <svg
+                class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 5l7 7-7 7M5 12h15"
+                ></path>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS("particles-js", {
+        particles: {
+          number: {
+            value: 100,
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: ["#a855f7", "#ec4899"],
+          },
+          shape: {
+            type: "circle",
+          },
+          opacity: {
+            value: 0.5,
+            random: true,
+          },
+          size: {
+            value: 3,
+            random: true,
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: true,
+            out_mode: "out",
+          },
+        },
+        interactivity: {
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse",
+            },
+          },
+        },
+      });
+
+      // GSAP Animations
+      gsap.from(".success-checkmark", {
+        scale: 0,
+        opacity: 0,
+        duration: 0.8,
+        ease: "elastic.out(1, 0.5)",
+      });
+
+      gsap.from(".floating-card", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+      });
+    </script>
+  </body>
+</html>

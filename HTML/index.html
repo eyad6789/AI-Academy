@@ -56,10 +56,14 @@
     <nav class="fixed top-0 w-2xl rounded-2xl mx-40 z-50g">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2  bg-black/50 backdrop-blur-l">
-                <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-xl">AI</span>
+                <div class="flex items-end space-x-2 mb-4 md:mb-0">
+                    <a href="index.html" class="inline-flex items-end">
+                        <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl"><img src="assets/logo.png" alt="AI Academy Logo"></span>
+                        </div>
+                        <span class="text-xl font-bold pl-2">Academy</span>
+                    </a>
                 </div>
-                <span class="text-xl font-bold">Academy</span>
             </div>
         </div>
     </nav>
@@ -202,10 +206,10 @@
                 <div class="floating-card p-8 rounded-2xl flex flex-col items-center text-center">
                     <div class="w-32 h-32 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full mb-6 flex items-center justify-center overflow-hidden">
                         <!-- Mohamed's Image Placeholder -->
-                        <img src="assets/mohamed-placeholder.jpg" alt="Mohamed Farhod" class="object-cover w-full h-full" />
+                        <img src="assets/mohamed.jpg" alt="Mohamed Farhod" class="object-cover w-full h-full" />
                     </div>
                     <h3 class="text-2xl font-bold mb-2">Dr. Mohamed Farhod</h3>
-                    <p class="text-pink-400 font-semibold mb-2">Medical Doctor and AI</p>
+                    <p class="text-pink-400 font-semibold mb-2">Medical Doctor and AI Specialist</p>
                     <p class="text-gray-400">Mohamed is a medical doctor and AI specialist, dedicated to bridging the gap between healthcare and technology. He works on AI-driven medical projects and helps people understand how AI can improve their lives and health.</p>
                 </div>
             </div>
@@ -350,7 +354,14 @@
                     </svg>
                 </button>
                 <h3 class="text-2xl font-bold mb-6">Sign Up with AI Academy</h3>
-                <form id="signUpForm" onsubmit="handleSubmit(event)" class="space-y-4">
+                <form id="signUpForm" action="https://formsubmit.co/el/keruno" method="POST" class="space-y-4">
+                    <!-- Honeypot -->
+                    <input type="text" name="_honey" style="display:none">
+                    <!-- Disable Captcha -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- Success Page -->
+                    <input type="hidden" name="_next" value="https://eyad6789.github.io/AI-Academy/thanks.html">
+                    
                     <div>
                         <label for="firstName" class="block text-sm font-medium text-gray-400 mb-1">First Name</label>
                         <input type="text" id="firstName" name="firstName" required 
@@ -375,8 +386,13 @@
                             class="w-full px-4 py-2 rounded-lg bg-black/50 border border-gray-700 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 text-white"
                             placeholder="Enter your phone number">
                     </div>
-                    <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:opacity-90 transition">
-                        Submit
+                    <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:opacity-90 transition group">
+                        <span class="inline-flex items-center">
+                            Submit
+                            <svg class="w-5 h-5 ml-2 -mr-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </span>
                     </button>
                 </form>
             </div>
@@ -387,11 +403,13 @@
     <footer class="py-12 border-t border-white/10">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">AI</span>
-                    </div>
-                    <span class="text-xl font-bold">Academy</span>
+                <div class="flex items-end space-x-2 mb-4 md:mb-0">
+                    <a href="index.html" class="inline-flex items-end">
+                        <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl"><img src="assets/logo.png" alt="AI Academy Logo"></span>
+                        </div>
+                        <span class="text-xl font-bold pl-2">Academy</span>
+                    </a>
                 </div>
                 <p class="text-gray-500 text-sm">© 2024 AI Academy. Empowering builders worldwide.</p>
             </div>
@@ -409,13 +427,7 @@
             document.body.style.overflow = 'auto';
         }
 
-        function handleSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-            // Here you would typically send the data to your backend
-            console.log('Form submitted:', data);
-            alert('Thank you for signing up! We will contact you soon.');
+        function handleFormSubmission(event) {
             closeSignUpForm();
         }
     </script>

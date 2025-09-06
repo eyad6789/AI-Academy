@@ -7,22 +7,20 @@
     <link href="./style.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {}
+        tailwind.config = {
+            theme: {
+                extend: {}
+            }
         }
-      }
     </script>
     <script src="./main.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="./style.css">
-
 </head>
 <body>
     <div id="canvas-container"></div>
-    
     <!-- Navigation -->
     <nav class="fixed top-0 w-2xl rounded-2xl mx-40 z-50g">
         <div class="container mx-auto px-6 py-4 flex justify-between items-end">
@@ -34,7 +32,6 @@
             </div>
         </div>
     </nav>
-    
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center relative pt-20">
         <div class="container mx-auto px-6 text-center">
@@ -56,7 +53,6 @@
             </svg>
         </div>
     </section>
-    
     <!-- Features Section -->
     <section id="features" class="py-20 relative">
         <div class="container mx-auto px-6">
@@ -97,7 +93,6 @@
             </div>
         </div>
     </section>
-
     <!-- How It Works Section -->
     <section class="py-20 tech-grid relative">
         <div class="container mx-auto px-6">
@@ -148,7 +143,6 @@
             </div>
         </div>
     </section>
-
     <!-- About Us Section -->
     <section id="about-us" class="py-20 bg-black/40 relative">
         <div class="container mx-auto px-6">
@@ -195,7 +189,6 @@
             </div>
         </div>
     </section>
-    
     <!-- Projects Showcase -->
     <section id="projects" class="py-20">
         <div class="container mx-auto px-6">
@@ -317,9 +310,8 @@
             </div>
         </div>
     </section>
-    
     <!-- CTA Section -->
-<section class="py-20 cta">
+    <section class="py-20 cta">
         <div class="container mx-auto px-6">
             <div class="floating-card p-12 rounded-3xl text-center bg-gradient-to-r from-purple-900/20 to-pink-900/20">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
@@ -336,7 +328,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Sign Up Modal -->
         <div id="signUpModal" class="fixed inset-0 bg-black/90 flex items-center justify-center hidden z-50">
             <div class="bg-gray-900 p-8 rounded-2xl w-full max-w-md relative floating-card">
@@ -383,7 +374,6 @@
             </div>
         </div>
     </section>
-    
     <!-- Footer -->
     <footer class="py-12 border-t border-white/10">
         <div class="container mx-auto px-6">
@@ -404,12 +394,10 @@
             document.getElementById('signUpModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
-
         function closeSignUpForm() {
             document.getElementById('signUpModal').classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
-
         // Close modal when clicking outside
         document.getElementById('signUpModal').addEventListener('click', function(e) {
             if (e.target === this) {
@@ -417,7 +405,5 @@
             }
         });
     </script>
-    
-
 </body>
 </html>

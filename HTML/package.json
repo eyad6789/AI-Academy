@@ -1,0 +1,18 @@
+{
+  "name": "ai-academy",
+  "version": "1.0.0",
+  "description": "AI Academy Website",
+  "scripts": {
+    "build": "tailwindcss -i ./input.css -o ./style.css",
+    "watch": "tailwindcss -i ./input.css -o ./style.css --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13"
+  },
+  "main": "main.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

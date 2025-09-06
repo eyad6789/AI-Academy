@@ -4,50 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Academy - Build Without Code</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="./style.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {}
+        }
+      }
+    </script>
+    <script src="./main.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="./style.css">
-    <style>
-        .glow-button-alt {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .glow-button-alt:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-        }
-        
-        .glow-button-alt:before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            z-index: -1;
-            background: linear-gradient(45deg, #ff00ea, #9f00ff, #00ffff, #ff00ea);
-            background-size: 400%;
-            animation: glowing 20s linear infinite;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            border-radius: 10px;
-        }
-        
-        .glow-button-alt:hover:before {
-            opacity: 1;
-        }
-        
-        @keyframes glowing {
-            0% { background-position: 0 0; }
-            50% { background-position: 400% 0; }
-            100% { background-position: 0 0; }
-        }
-    </style>
+
 </head>
 <body>
     <div id="canvas-container"></div>
@@ -56,14 +27,10 @@
     <nav class="fixed top-0 w-2xl rounded-2xl mx-40 z-50g">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2  bg-black/50 backdrop-blur-l">
-                <div class="flex items-end space-x-2 mb-4 md:mb-0">
-                    <a href="index.html" class="inline-flex items-end">
-                        <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xl"><img src="assets/logo.png" alt="AI Academy Logo"></span>
-                        </div>
-                        <span class="text-xl font-bold pl-2">Academy</span>
-                    </a>
+                <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">AI</span>
                 </div>
+                <span class="text-xl font-bold">Academy</span>
             </div>
         </div>
     </nav>
@@ -198,7 +165,7 @@
                         <!-- Eyad's Image Placeholder -->
                         <img src="./assets/my-image.jpg" alt="Eyad Qasim" class="object-cover w-full h-full" />
                     </div>
-                    <h3 class="text-2xl font-bold mb-2">Eng. Eyad Qasim</h3>
+                    <h3 class="text-2xl font-bold mb-2">Eyad Qasim</h3>
                     <p class="text-purple-400 font-semibold mb-2">AI Engineer</p>
                     <p class="text-gray-400">Eyad is an experienced AI engineer with a passion for building innovative solutions and making AI accessible to everyone. He specializes in developing practical AI tools and teaching others how to leverage AI in real-world projects.</p>
                 </div>
@@ -209,17 +176,8 @@
                         <img src="assets/mohamed.jpg" alt="Mohamed Farhod" class="object-cover w-full h-full" />
                     </div>
                     <h3 class="text-2xl font-bold mb-2">Dr. Mohamed Farhod</h3>
-                    <p class="text-pink-400 font-semibold mb-2">Medical Doctor and AI Specialist</p>
+                    <p class="text-pink-400 font-semibold mb-2">Medical Doctor and AI</p>
                     <p class="text-gray-400">Mohamed is a medical doctor and AI specialist, dedicated to bridging the gap between healthcare and technology. He works on AI-driven medical projects and helps people understand how AI can improve their lives and health.</p>
-                </div>
-                                <div class="floating-card p-8 rounded-2xl flex flex-col items-center text-center">
-                    <div class="w-32 h-32 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full mb-6 flex items-center justify-center overflow-hidden">
-                        <!-- Mohamed's Image Placeholder -->
-                        <img src="assets/youssef.jpg" alt="Eng. Youssef Mohamed" class="object-cover w-full h-full" />
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Eng. Youssef Mohamed</h3>
-                    <p class="text-pink-400 font-semibold mb-2">Architectural Engineer</p>
-                    <p class="text-gray-400">Youssef is an architectural engineer with a passion for integrating AI into building design and construction. He focuses on using AI to optimize architectural workflows and enhance the design process.</p>
                 </div>
             </div>
             <div class="text-center mt-12">
@@ -333,7 +291,7 @@
     </section>
     
     <!-- CTA Section -->
-    <section class="py-20 cta">
+<section class="py-20 cta">
         <div class="container mx-auto px-6">
             <div class="floating-card p-12 rounded-3xl text-center bg-gradient-to-r from-purple-900/20 to-pink-900/20">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
@@ -360,14 +318,7 @@
                     </svg>
                 </button>
                 <h3 class="text-2xl font-bold mb-6">Sign Up with AI Academy</h3>
-                <form id="signUpForm" action="https://formsubmit.co/el/keruno" method="POST" class="space-y-4">
-                    <!-- Honeypot -->
-                    <input type="text" name="_honey" style="display:none">
-                    <!-- Disable Captcha -->
-                    <input type="hidden" name="_captcha" value="false">
-                    <!-- Success Page -->
-                    <input type="hidden" name="_next" value="https://eyad6789.github.io/AI-Academy/thanks.html">
-                    
+                <form id="signUpForm" action="thanks.html" method="GET" class="space-y-4">
                     <div>
                         <label for="firstName" class="block text-sm font-medium text-gray-400 mb-1">First Name</label>
                         <input type="text" id="firstName" name="firstName" required 
@@ -409,13 +360,11 @@
     <footer class="py-12 border-t border-white/10">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-end space-x-2 mb-4 md:mb-0">
-                    <a href="index.html" class="inline-flex items-end">
-                        <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xl"><img src="assets/logo.png" alt="AI Academy Logo"></span>
-                        </div>
-                        <span class="text-xl font-bold pl-2">Academy</span>
-                    </a>
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">AI</span>
+                    </div>
+                    <span class="text-xl font-bold">Academy</span>
                 </div>
                 <p class="text-gray-500 text-sm">© 2024 AI Academy. Empowering builders worldwide.</p>
             </div>
@@ -433,9 +382,14 @@
             document.body.style.overflow = 'auto';
         }
 
-        function handleFormSubmission(event) {
-            closeSignUpForm();
-        }
+        // Close modal when clicking outside
+        document.getElementById('signUpModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSignUpForm();
+            }
+        });
     </script>
+    
+
 </body>
 </html>
